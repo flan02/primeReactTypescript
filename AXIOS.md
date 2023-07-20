@@ -1,0 +1,1 @@
+Axios difiere de Fetch con el Interceptor. Este intercepta las peticiones (get, post, update, delete) y las respuestas HTTP. El interceptor esta en el medio de todo lo que llama y todo lo que llega a nuestra app.
