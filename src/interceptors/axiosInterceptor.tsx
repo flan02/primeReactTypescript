@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
+import { getValidationError } from "../utilities"
+import { Snackbar } from "../utilities/snackbarConfig"
 
 export const axiosInterceptor = () => {
 
@@ -27,7 +29,8 @@ export const axiosInterceptor = () => {
             return response
         },
         (error) => {
-            console.log('axiosInterceptor response error', error)
+            //  console.log('axiosInterceptor response error', getValidationError(error.code)) //
+            Snackbar.error(getValidationError(error.code)) // Esto es como un provider de Redux, se puede usar en toda la app.
             return Promise.reject(error)
         }
     )

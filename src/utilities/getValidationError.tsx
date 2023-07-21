@@ -1,0 +1,57 @@
+import { TypeWithKey } from "../models"
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getValidationError = (errorCode: any) => {
+    //El getValidationError tambien se utilizan para mensajes de error de validacion de formularios
+    const codeMatcher: TypeWithKey<string> = {
+        ERR_NETWORK: "Se rompio la red",
+        required: "Campo requerido",
+        minLength: "El campo debe tener al menos 3 caracteres",
+        maxLength: "El campo debe tener menos de 20 caracteres",
+        pattern: "El campo debe tener solo letras",
+        min: "El campo debe ser mayor a 0",
+        max: "El campo debe ser menor a 100",
+        equal: "Los campos deben ser iguales",
+        notEqual: "Los campos no deben ser iguales",
+        BAD_REQUEST: "Error de peticion",
+        UNAUTHORIZED: "No autorizado",
+        NOT_AUTHENTICATED: "No autenticado",
+        PAYMENT_REQUIRED: "Pago requerido",
+        FORBIDDEN: "Prohibido",
+        NOT_FOUND: "No encontrado",
+        METHOD_NOT_ALLOWED: "Metodo no permitido",
+        NOT_ACCEPTABLE: "No aceptable",
+        ACCOUNT_EXPIRED: "Cuenta expirada",
+        ACCOUNT_LOCKED: "Cuenta bloqueada",
+        ACCOUNT_ALREADY_EXISTS: "La cuenta ya existe",
+        USER_NOT_FOUND: "Usuario no encontrado",
+        USER_ALREADY_EXISTS: "El usuario ya existe",
+        REQUEST_TIMEOUT: "Tiempo de espera agotado",
+        CONFLICT: "Conflicto",
+        INTERNAL_SERVER_ERROR: "Error interno del servidor",
+        NOT_IMPLEMENTED: "No implementado",
+        BAD_GATEWAY: "Puerta de enlace incorrecta",
+        SERVICE_UNAVAILABLE: "Servicio no disponible",
+        GATEWAY_TIMEOUT: "Tiempo de espera de la puerta de enlace",
+        HTTP_VERSION_NOT_SUPPORTED: "Version de HTTP no soportada",
+        NETWORK_CONNECT_TIMEOUT_ERROR: "Tiempo de espera de conexion de red",
+        NETWORK_CONNECT_ERROR: "Error de conexion de red",
+        NETWORK_DOWNLOAD_TIMEOUT_ERROR: "Tiempo de espera de descarga de red",
+        invalidEmail: "El email es invalido",
+        invalidPassword: "La contraseña es invalida",
+        invalidUsername: "El nombre de usuario es invalido",
+        invalidPhone: "El telefono es invalido",
+        invalidDni: "El dni es invalido",
+        invalidDate: "La fecha es invalida",
+        invalidNumber: "El numero es invalido",
+        invalidUrl: "La url es invalida",
+        invalidCreditCard: "La tarjeta de credito es invalida",
+        invalidPostalCode: "El codigo postal es invalido",
+        invalidIpAddress: "La direccion IP es invalida",
+        invalidHex: "El color hexadecimal es invalido",
+        invalidIpv4: "La direccion IPv4 es invalida",
+        invalidIpv6: "La direccion IPv6 es invalida",
+    }
+
+    return codeMatcher[errorCode]
+}

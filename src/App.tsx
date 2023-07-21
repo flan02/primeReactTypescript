@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-
+import { SnackbarProvider } from 'notistack'
 import './App.css'
 import { testingServices } from './services/testingServices'
+import { SnackbarkConfig } from './utilities/snackbarConfig'
 
 function App() {
 
@@ -14,22 +15,18 @@ function App() {
   }
 
   useEffect(() => {
-    try {
-      fetchMorty()
-    } catch (error) {
-      console.log(error);
-    }
-
-
+    fetchMorty()  // El posible error de que no se pueda obtener el personaje se maneja en el interceptor
   }, [])
 
 
   return (
+    <SnackbarProvider>
+      <SnackbarkConfig />
+      <pre className="pre">
+        {JSON.stringify(morty)}
+      </pre>
 
-    <pre className="pre">
-      {JSON.stringify(morty)}
-    </pre>
-
+    </SnackbarProvider>
   )
 }
 
